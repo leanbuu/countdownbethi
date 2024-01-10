@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFF1ED;
+}
+
+#top_banner{
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  >img:first-child{
+    width: calc(50% - 50px);
+    @media screen and (max-width: 1024px) {
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 10px
+    }
+  }
+}
+#body_time{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+
+.img_custom{
+  width: 10%;
+}
+
+.body_time_main{
+  width: 80%;
+  @media screen and (max-width: 1024px) {
+    
+  }
+}
+
+.time_countdown{
+  padding: 0 8%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end; 
+  height: 50%;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0;
+  }
+
+  >div{
+    background-color: #FFF;
+    border-radius: 20px;
+    border: solid 1px #cf8d7a;
+    width: 18%;
+    height: 75%;
+    font-size: 100px;
+    text-align: center;
+    color: #593B33;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 30px;
+      border-radius: 8px;
+    }
+  }
+}
+
+.time_type{
+  padding: 0 8%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 50%;
+  margin-top: 25px;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  >div{
+    width: 18%;
+    height: 75px;
+    text-align: center;
+    font-weight: bold;
+    color: #593B33;
+    font-size: 40px;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 12px;
+    }
+  }
+}
+
+#top_banner {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#body_time {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 5s ease, transform 3s ease;
+}
+
+#top_banner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#body_time.show {
+  opacity: 1;
+  transform: translateY(0);
+}

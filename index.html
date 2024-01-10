@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web của Nhựt Thi</title>
+  <meta name="description" content="Clone da interface da página inicial da Netflix desenvolvido por Guilherme Magno durante o Bootcamp HTML Web Developer da DIO.">
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Netflix"/>
+  <meta property="og:description" content="Clone da interface da página inicial da Netflix desenvolvido por Guilherme Magno durante o Bootcamp HTML Web Developer da DIO."/>
+  <meta property="og:url" content="http://devmagno.github.io/ui-clone-netflix"/>
+  <meta property="og:image" content="http://devmagno.github.io/ui-clone-netflix/img/og-image.png"/>
+  <meta property="og:site_name" content="UI Clone Netflix"/>
+  <link rel="shortcut icon" href="img/thi.ico">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- RESPONSIVIDADE -->
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <!-- Owl CSS -->
+  <link rel="stylesheet" href="styles/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="styles/owl/owl.theme.default.min.css">
+  <!-- OWL JS -->
+  <script src="js/owl/jquery.min.js"></script>
+  <script src="js/owl/owl.carousel.min.js"></script>
+
+  <!-- FontAwesome Icons -->
+  <script src="https://kit.fontawesome.com/77daa57238.js" crossorigin="anonymous"></script>
+
+  <meta name="theme-color" content="#141414">
+</head>
+
+<body>
+    <header>
+    </header>
+    <div id="top_banner">
+      <img src="./img/tettopbanner.jpg">
+      <img style="width: 50px; height: 50px;" src="./img/star1.jpg">
+    </div>
+    <div id="body_time">  
+      <img class="img_custom" src="./img/customtet2.jpg">
+      <div class="body_time_main">
+        <div class="time_countdown">
+          <div id="time_countdown-day">1</div>
+          <div id="time_countdown-hours">1</div>
+          <div id="time_countdown-minutes">1</div>
+          <div id="time_countdown-seconds">1</div>
+        </div>
+        <div class="time_type">
+          <div>NGÀY</div>
+          <div>GIỜ</div>
+          <div>PHÚT</div>
+          <div>GIÂY</div>
+        </div>
+      </div>
+      <img class="img_custom" src="./img/customtet1.jpg">
+    </div>
+
+
+  <!-- JS  -->
+  <script src="js/owl/setup.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    var topBanner = document.getElementById("top_banner");
+    var bodyTime = document.getElementById("body_time");
+  
+    function isElementInViewport(element) {
+      var rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  
+    // Hàm để kiểm tra và thêm lớp show nếu phần tử nằm trong tầm nhìn
+    function checkAndShow(element) {
+      if (isElementInViewport(element)) {
+        element.classList.add("show");
+      }
+    }
+  
+    // Kiểm tra và thêm lớp khi trang được tải
+    checkAndShow(topBanner);
+    checkAndShow(bodyTime);
+
+    function updateCountdown() {
+      const targetDate = "2024-02-09 23:59:59"
+      const currentDate = new Date();
+      const hours = currentDate.getHours().toString().padStart(2, '0');
+      const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+      const seconds = currentDate.getSeconds().toString().padStart(2, '0');
+      const currentDateToday = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')} ${hours}:${minutes}:${seconds}`;
+      const targetDateTime = new Date(targetDate);
+      const timeDifference = targetDateTime - currentDate;
+
+      if (timeDifference > 0) {
+        const seconds = Math.floor((timeDifference / 1000) % 60);
+        const minutes = Math.floor((timeDifference / 1000 / 60) % 60);
+        const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+        document.getElementById("time_countdown-day").innerHTML = `${days}`;
+        document.getElementById("time_countdown-hours").innerHTML = `${hours}`;
+        document.getElementById("time_countdown-minutes").innerHTML = `${minutes}`;
+        document.getElementById("time_countdown-seconds").innerHTML = `${seconds}`;
+      } else {
+        document.getElementById("countdown").innerHTML = "CHÚC MỪNG NĂM MỚIIIII";
+      }
+    }
+  })
+</script>
+</body>
+
+
+
+</html>
