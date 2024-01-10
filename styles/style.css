@@ -19,16 +19,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 0px;
     margin-bottom: 60px;
   }
-  >img:first-child{
-    width: calc(50% - 50px);
-    @media screen and (max-width: 1024px) {
-      margin: 0 auto;
-      width: 100%;
-      padding: 0 10px
-    }
+}
+
+.imagetitle{
+  width: calc(50% - 50px);
+  @media screen and (max-width: 1024px) {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 10px
   }
 }
 #body_time{
@@ -107,12 +108,6 @@ body {
   }
 }
 
-#top_banner {
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
 #body_time {
   opacity: 0;
   transform: translateY(-50px);
@@ -127,4 +122,317 @@ body {
 #body_time.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.element, .heartRain{
+  position: absolute;
+  pointer-events: none;
+  transition: 1s;
+}
+
+.boxLine{
+  position: relative;
+  width: 1000px;
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.boxCar{
+  position: absolute;
+  bottom: 15%;
+  transform: translateX(-400px);
+  z-index: 2;
+  animation: car 4s 1s forwards, car1 2s 5s forwards;
+  @media screen and (max-width: 1024px) {
+    transform: translateX(-200px);
+  }
+}
+.boxCar img{
+  margin-left: 175px;
+  width: 350px;
+  @media screen and (max-width: 1024px) {
+    margin-left: -40px;
+    width: 100px;
+  }
+}
+@keyframes car{
+  0%{
+      transform: translateX(-400px);
+      @media screen and (max-width: 1024px) {
+        transform: translateX(-200px);
+      }
+  }
+  50%,100%{
+      transform: translateX(150px);
+      @media screen and (max-width: 1024px) {
+        transform: translateX(150px);
+      }
+  }
+}
+.boxHeart{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  animation:  heartX 4s 1s forwards;
+}
+/* @keyframes car1 {
+  0%{
+      transform: translateX(150px);
+  }
+  100%{
+      transform: translateX(1000px);
+  }
+} */
+.heart1,.heart2,.heart3, .heart4, .heart5, .heart6{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(255, 62, 65);
+  transform: scale(0.2) rotate(45deg);
+  bottom: 20%;
+  left: 450px;
+  z-index: 1;
+}
+.heart1{
+  animation:love1 4s infinite ease-in 1s;
+}
+.heart2{
+  animation: love2 3s infinite ease-in 2s;
+}
+.heart3{
+  animation: love2 5s infinite ease-in 1.5s;
+}
+.heart4{
+  animation: love1 2s infinite ease-in 2s;
+}
+.heart5{
+  animation: love1 2.3s infinite ease-in 0.5s;
+}
+.heart5{
+  animation: love2 2.5s infinite ease-in 1.5s;
+}
+.heart1::before, .heart2::before,
+.heart3::before,.heart4::before, .heart5::before, .heart6::before{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 62, 65);
+  left: -50%;
+  border-radius: 50%;
+}
+.heart1::after, .heart2::after,
+.heart3::after, .heart4::after, .heart5::after, .heart6::after{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 62, 65);
+  top: -50%;
+  border-radius: 50%;
+}
+@keyframes love1{
+  0%{
+      opacity: 0;
+      transform: scale(0.3) rotate(0deg) translate3d(40px, 0, 0);
+  }
+  50%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+      transform: scale(0.9) rotate(-15deg) translate3d(-20px, -300px, 0);
+  }
+}
+@keyframes love2{
+  0%{
+      opacity: 0;
+      transform: scale(0.2) rotate(10deg) translate3d(50px, 0, 0);
+  }
+  50%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+      transform: scale(0.7) rotate(5deg) translate3d(-20px, -250px, 0);
+  }
+}
+@keyframes heartX {
+  0%{
+      left: -500px;
+  }
+  50%,100%{
+      left: 0px;
+  }
+}
+.boxLine{
+  position: relative;
+  width: 40%;
+  height: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 50;
+  @media screen and (max-width: 1024px) {
+    width: 80%;
+  }
+}
+
+.ground-line {
+  width: 100%;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  overflow: hidden;
+  height: 6px;
+  @media screen and (max-width: 1024px) {
+    height: 4px;;
+  }
+}
+.ground-line div {
+  width: 2000px;
+  font-size: 0;
+  animation: roadLine 3s infinite linear;
+}
+.ground-line .line1 {
+  width: 80px;
+}
+.ground-line .line2 {
+  width: 300px;
+}
+.ground-line .line3 {
+  width: 40px;
+}
+.ground-line .line4 {
+  width: 200px;
+}
+.ground-line .line5 {
+  width: 280px;
+}
+.ground-line span {
+  height: 6px;
+  display: inline-block;
+  background-color: #4b1a61;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  vertical-align: bottom;
+  margin-right: 20px;
+}
+@keyframes roadLine{
+  0% {
+      -webkit-transform: translate(0, 0);
+      -moz-transform: translate(0, 0);
+      transform: translate(0, 0);
+  }
+  
+  100% {
+      -webkit-transform: translate(-1000px, 0);
+      -moz-transform: translate(-1000px, 0);
+      transform: translate(-1000px, 0);
+  }
+}
+
+.loadingLove{
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+}
+
+.rhombus {
+  border-radius: 10px;
+  height: 75px;
+  width: 75px;
+}
+
+.rhombus:before {
+  content: "";
+  position: absolute;
+  background: #EA4C89;
+  height: 40px;
+  width: 40px;
+  z-index: 0;
+  margin-top: 15px;
+  margin-left: 15px;
+  transform: rotate(45deg);
+}
+
+.rhombus .circle1 {
+  content: "";
+  position: absolute;
+  background: #EA4C89;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+  border-radius: 50%;
+  animation-duration: 2s;
+  animation-name: change1;
+  animation-iteration-count: infinite;
+  /*animation-direction: alternate;*/
+}
+
+.rhombus .circle2 {
+  content: "";
+  position: absolute;
+  background: #EA4C89;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+  margin-left: 30px;
+  border-radius: 50%;
+  animation-duration: 2s;
+  animation-name: change2;
+  animation-iteration-count: infinite;
+  /*animation-direction: alternate;*/
+}
+@keyframes change1 {
+  0%,
+  25% {
+      margin-top: 0px;
+      margin-left: 0px;
+  }
+  50%,
+  75% {
+      margin-top: 30px;
+      margin-left: 30px;
+  }
+}
+
+@keyframes change2 {
+  25%,
+  50% {
+      margin-top: 30px;
+      margin-left: 0px;
+  }
+  75%,
+  100% {
+      margin-top: 0px;
+      margin-left: 30px;
+  }
+}
+
+.imagemew1{
+  width: 200px;
+  height: 200px;
+  @media screen and (max-width: 1024px) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.imagemew2{
+  width: 200px;
+  height: 200px;
+  @media screen and (max-width: 1024px) {
+    width: 0px;
+    height: 0px;
+  }
 }
