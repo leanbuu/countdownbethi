@@ -55,9 +55,30 @@
           <div>GIÂY</div>
         </div>
       </div>
+      <div id="body_time_out" style="display: none;">
+        <div class="formLetter">
+          <div class="wrapperLetter">
+            💗💗CHÚC MỪNG NĂM MỚI💗💗
+              <div class="textLetter">
+                Năm mới Tết đến, anh xin chúc bé yêu của anh một năm thật vui vẻ, sức khỏe dồi dào, ngày càng xinh đẹp. Công việc thì suôn sẻ, cuộc sống thì nhẹ nhàng bình yên hạnh phúc, anh mong anh có thể tiếp tục được ở bên em từ năm này qua năm khác cho đến hết đời vì anh thật sự rất rất yêu bé Thi💗
+                  <h2></h2>
+                  <p class="contentLetter"></p>
+                  <div class="heartAnimation">
+                      <img src="../image/heartAnimation.gif" alt="">
+                  </div>
+              </div>
+              <div class="mewmew1">
+                  <img src="../image/mewmew.gif" alt="">
+              </div>
+              <div class="mewmew2">
+                  <img src="../image/mewmew.gif" alt="">
+              </div>
+          </div>
+      </div>
+      </div>
       <img class="img_custom" src="./img/customtet1.jpg">
     </div>
-    <div>
+    <div id="haha">
       <div class="boxLine">
         <div class="boxCar">
             <img src="./img/car.gif" alt="">
@@ -173,7 +194,7 @@
     checkAndShow(bodyTime);
 
     function updateCountdown() {
-      const targetDate = "2024-02-09 23:59:59"
+      const targetDate = "2024-02-09 20:27:40"
       const currentDate = new Date();
       const hours = currentDate.getHours().toString().padStart(2, '0');
       const minutes = currentDate.getMinutes().toString().padStart(2, '0');
@@ -193,7 +214,12 @@
         document.getElementById("time_countdown-minutes").innerHTML = `${minutes}`;
         document.getElementById("time_countdown-seconds").innerHTML = `${seconds}`;
       } else {
-        document.getElementById("countdown").innerHTML = "CHÚC MỪNG NĂM MỚIIIII";
+        var elements = document.getElementsByClassName("body_time_main");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.display = "none";
+        }
+        document.getElementById("body_time_out").style.display = "block";
+        document.getElementById("haha").style.display = "none";
       }
     }
   })

@@ -434,3 +434,51 @@ body {
     height: 0px;
   }
 }
+
+#body_time_out{
+  width: 100%;
+  font-family: 'Dancing Script', cursive;
+}
+
+.formLetter{
+  position: relative;
+  height: 350px;
+  background-color: #FFEBEB;
+  border-radius: 20px;
+  z-index: 100;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.formLetter .wrapperLetter{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #FF6666;
+  border-radius: inherit;
+  text-align: center;
+}
+.boxLetter .before{
+  position: absolute;
+  height: 350px;
+  background: #fff;
+  transform: rotate(-15deg);
+  border-radius: 20px;
+  z-index: 10;
+}
+.formLetter .heartLetter{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #FFEBEB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.textLetter{
+  padding: 10px 5px;
+  font-family: 'Dancing Script', cursive;
+
+}
