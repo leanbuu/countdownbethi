@@ -437,7 +437,6 @@ body {
 
 #body_time_out{
   width: 100%;
-  font-family: 'Dancing Script', cursive;
 }
 
 .formLetter{
@@ -479,5 +478,5 @@ body {
 
 .textLetter{
   padding: 10px 5px;
-  
+
 }
