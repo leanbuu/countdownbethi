@@ -35,7 +35,7 @@
     </header>
     <div id="top_banner">
         <img class="imagemew1" src="./img/mewmew.gif" alt="">
-        <img class="imagetitle" src="./img/tettopbanner.jpg">
+        <img class="imagetitle" src="./img/hpbd1.jpg">
         <img class="imagemew2" src="./img/mewmew.gif" alt="">
         <img style="width: 50px; height: 50px;" src="./img/star1.jpg">
     </div>
@@ -57,10 +57,14 @@
       </div>
       <div id="body_time_out" style="display: none;">
         <div class="formLetter">
-          <div class="wrapperLetter">
-            💗💗CHÚC MỪNG NĂM MỚI💗💗
+          <div id="wrapperLetter" class="wrapperLetter">
+            <div style="display: flex; justify-content: center;">
+              <div>💗</div>
+              <div>Mừng Ngày Công Chúa Của Anh Ra Đời</div>
+              <div>💗</div>
+            </div>
               <div class="textLetter">
-                Năm mới Tết đến, anh xin chúc bé yêu của anh một năm thật vui vẻ, sức khỏe dồi dào, ngày càng xinh đẹp. Công việc thì suôn sẻ, cuộc sống thì nhẹ nhàng bình yên hạnh phúc, anh mong anh có thể tiếp tục được ở bên em từ năm này qua năm khác cho đến hết đời vì anh thật sự rất rất yêu bé Thi💗
+                <div style="text-align: left;" id="typedText"></div>
                   <h2></h2>
                   <p class="contentLetter"></p>
                   <div class="heartAnimation">
@@ -118,6 +122,7 @@
   <!-- JS  -->
   <script src="js/owl/setup.js"></script>
   <script>
+  textShow = true
   $(document).ready(function() {
     $('.loadingLove').delay(1922).fadeOut('fast');
     function getHeart(e){
@@ -194,7 +199,7 @@
     checkAndShow(bodyTime);
 
     function updateCountdown() {
-      const targetDate = "2024-03-31 23:59:59"
+      const targetDate = "2024-06-28 23:31:59"
       const currentDate = new Date();
       const hours = currentDate.getHours().toString().padStart(2, '0');
       const minutes = currentDate.getMinutes().toString().padStart(2, '0');
@@ -220,9 +225,36 @@
         }
         document.getElementById("body_time_out").style.display = "block";
         document.getElementById("haha").style.display = "none";
+        if(textShow){
+          textShow = false
+          setTimeout(()=>{
+            typeEffect()
+        },3000)
+        }
       }
     }
   })
+
+  let index = 0;
+  const speed = 75; // Tốc độ gõ chữ (ms)
+  const text = "Chúc mừng sinh nhật em yêu❤️. Xin chào tình yêu của anh! Đây là năm thứ 7 mà được chúc sinh nhật em, không quá dài nhưng cũng không ngắn, đủ để anh biết anh yêu em nhiều như thế nào. Chúc em tuổi mới thật vui vẻ, luôn hạnh phúc, thật nhiều sức khỏe ngày càng xinh đẹp và khỏe mạnh, mọi ước muốn và dự định đều thành sự thật. Anh thật sự rất vui vì lần này khi nói câu này anh đã là người yêu của em. Cảm ơn em vì đã xuất hiện, đã bên cạnh, đã yêu anh. Anh sẽ cố gắng để em luôn được hạnh phúc vui vẻ, vì đối với anh em là điều tuyệt vời nhất thế giới này, em thật sự là tất cả của anh,là ước mơ cả đời của anh. Cứ hạnh phúc còn lại thì để anh lo nha. Anh yêu em❤️";
+  function typeEffect() {
+        if (index < text.length) {
+            // Nếu gặp ký tự '\n', thêm thẻ <br> để xuống dòng
+            if (text.charAt(index) === '\n') {
+                document.getElementById("typedText").innerHTML += '<br>';
+            } else {
+                document.getElementById("typedText").innerHTML += text.charAt(index);
+            }
+            index++;
+
+            // Cuộn thẻ cha xuống dưới cùng
+            const container = document.getElementById("wrapperLetter");
+            container.scrollTop = container.scrollHeight;
+
+            setTimeout(typeEffect, speed);
+        }
+    }
 </script>
 </body>
 

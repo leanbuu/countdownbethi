@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +9,9 @@
 
 body {
   background-color: #FFF1ED;
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 #top_banner{
@@ -441,20 +446,22 @@ body {
 
 .formLetter{
   position: relative;
-  height: 350px;
+  height: 500px;
   background-color: #FFEBEB;
   border-radius: 20px;
   z-index: 100;
-  padding: 20px 15px;
+  padding: 20px 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .formLetter .wrapperLetter{
+  padding: 10px 5px;
   position: relative;
   width: 100%;
   height: 100%;
   border: 2px dashed #FF6666;
   border-radius: inherit;
   text-align: center;
+  overflow-y: scroll;
 }
 .boxLetter .before{
   position: absolute;
