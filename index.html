@@ -124,6 +124,12 @@
   <script>
   textShow = true
   $(document).ready(function() {
+    if(textShow){
+          textShow = false
+          setTimeout(()=>{
+            typeEffect()
+        },3000)
+        }
     $('.loadingLove').delay(1922).fadeOut('fast');
     function getHeart(e){
         let ele = document.createElement("div");
@@ -199,7 +205,7 @@
     checkAndShow(bodyTime);
 
     function updateCountdown() {
-      const targetDate = "2024-06-28 23:59:59"
+      const targetDate = "2024-06-28 23:36:59"
       const currentDate = new Date();
       const hours = currentDate.getHours().toString().padStart(2, '0');
       const minutes = currentDate.getMinutes().toString().padStart(2, '0');
@@ -225,12 +231,6 @@
         }
         document.getElementById("body_time_out").style.display = "block";
         document.getElementById("haha").style.display = "none";
-        if(textShow){
-          textShow = false
-          setTimeout(()=>{
-            typeEffect()
-        },3000)
-        }
       }
     }
   })
