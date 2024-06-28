@@ -41,7 +41,7 @@
     </div>
     <div id="body_time">  
       <img class="img_custom" src="./img/customtet2.jpg">
-      <div class="body_time_main">
+      <!-- <div class="body_time_main">
         <div class="time_countdown">
           <div id="time_countdown-day">1</div>
           <div id="time_countdown-hours">1</div>
@@ -54,8 +54,8 @@
           <div>PHÚT</div>
           <div>GIÂY</div>
         </div>
-      </div>
-      <div id="body_time_out" style="display: none;">
+      </div> -->
+      <div id="body_time_out">
         <div class="formLetter">
           <div id="wrapperLetter" class="wrapperLetter">
             <div style="display: flex; justify-content: center;">
@@ -124,11 +124,13 @@
   <script>
   textShow = true
   $(document).ready(function() {
-  
-        setTimeout(()=>{
-            typeEffect()
-        },3000)
     $('.loadingLove').delay(1922).fadeOut('fast');
+   
+  
+    setTimeout(()=>{
+      typeEffect()
+        },3000)
+    
     function getHeart(e){
         let ele = document.createElement("div");
         ele.className = "element"
