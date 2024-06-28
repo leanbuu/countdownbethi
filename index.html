@@ -124,12 +124,10 @@
   <script>
   textShow = true
   $(document).ready(function() {
-    if(textShow){
-          textShow = false
-          setTimeout(()=>{
+  
+        setTimeout(()=>{
             typeEffect()
         },3000)
-        }
     $('.loadingLove').delay(1922).fadeOut('fast');
     function getHeart(e){
         let ele = document.createElement("div");
